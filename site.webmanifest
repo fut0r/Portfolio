@@ -1,0 +1,15 @@
+{
+  "name": "fut0r",
+  "short_name": "fut0r",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eeede8",
+  "theme_color": "#eeede8",
+  "icons": [
+    {
+      "src": "/favicon.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
