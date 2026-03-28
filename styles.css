@@ -543,20 +543,21 @@ html:not([dir="rtl"]) .hero h1 {
 }
 
 html[dir="rtl"] .hero-top--arabic {
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "copy photo";
   column-gap: 56px;
 }
 
 html[dir="rtl"] .hero-top--arabic .hero-photo {
-  grid-column: 1;
-  justify-self: start;
+  grid-area: photo;
+  justify-self: end;
   margin: 0;
 }
 
 html[dir="rtl"] .hero-top--arabic .hero-copy {
-  grid-column: 2;
+  grid-area: copy;
   text-align: right;
-  justify-self: end;
+  justify-self: start;
   width: 100%;
 }
 
