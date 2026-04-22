@@ -95,7 +95,7 @@ async function loadRepositories() {
     const repos = await response.json();
     const selectedRepos = repos
       .filter((repo) => !repo.fork && !repo.archived)
-      .slice(0, 6);
+      .slice(0, 5);
 
     if (!selectedRepos.length) {
       renderStatus(uiText[pageLanguage].empty);
