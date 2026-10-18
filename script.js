@@ -2,7 +2,6 @@ const projectsGrid = document.getElementById("projects-grid");
 const languageTrigger = document.getElementById("language-trigger");
 const languagePopup = document.getElementById("language-popup");
 const themeToggle = document.getElementById("theme-toggle");
-const topbar = document.querySelector(".topbar");
 
 const githubUser = "fut0r";
 const repoEndpoint = `https://api.github.com/users/${githubUser}/repos?per_page=100&sort=updated`;
@@ -14,10 +13,11 @@ const pageLanguage = document.documentElement.lang === "ar" ? "ar" : "en";
 
 const uiText = {
   en: {
-    empty: "No public repositories to show right now.",
-    error: "Unable to load GitHub projects right now.",
-    unspecified: "Unspecified",
-    fallbackDescription: "No description added. The work is in the code.",
+    loading: "Loading repositories...",
+    empty: "Nothing public here yet.",
+    error: "Couldn't load my projects from GitHub right now. They're all on my profile though.",
+    unspecified: "Other",
+    fallbackDescription: "No description yet.",
     openRepo: (name) => `Open ${name} on GitHub`,
     stars: (count) => `${count} ${count === 1 ? "star" : "stars"}`,
     updated: "Updated",
@@ -25,10 +25,11 @@ const uiText = {
     toLight: "Switch to light theme"
   },
   ar: {
-    empty: "لا توجد مستودعات عامة للعرض الآن.",
-    error: "تعذر تحميل مشاريع GitHub الآن.",
-    unspecified: "غير محدد",
-    fallbackDescription: "لا يوجد وصف. العمل موجود داخل الكود.",
+    loading: "جارٍ تحميل المستودعات...",
+    empty: "لا يوجد شيء عام هنا بعد.",
+    error: "تعذّر تحميل مشاريعي من GitHub الآن، لكنها كلها موجودة على حسابي.",
+    unspecified: "أخرى",
+    fallbackDescription: "لا يوجد وصف بعد.",
     openRepo: (name) => `افتح ${name} على GitHub`,
     stars: (count) => `${count} نجمة`,
     updated: "آخر تحديث",
@@ -153,22 +154,6 @@ function renderStatus(message) {
   `;
 }
 
-function renderSkeleton() {
-  const row = `
-    <div class="project-row project-row--skeleton" aria-hidden="true">
-      <span class="skeleton-bar" style="width: 70%"></span>
-      <div>
-        <span class="skeleton-bar" style="width: 92%"></span>
-        <span class="skeleton-bar" style="width: 64%"></span>
-      </div>
-      <span class="skeleton-bar" style="width: 72px"></span>
-    </div>
-  `;
-
-  projectsGrid.setAttribute("aria-busy", "true");
-  projectsGrid.innerHTML = row.repeat(3);
-}
-
 function readRepoCache() {
   try {
     const cached = JSON.parse(sessionStorage.getItem(repoCacheKey));
@@ -227,7 +212,7 @@ async function loadRepositories() {
 
   try {
     if (!repos) {
-      renderSkeleton();
+      renderStatus(text.loading);
       repos = await fetchRepositories();
       writeRepoCache(repos);
     }
@@ -241,8 +226,6 @@ async function loadRepositories() {
   } catch (error) {
     renderStatus(text.error);
     console.error("Failed to fetch repositories:", error);
-  } finally {
-    projectsGrid.removeAttribute("aria-busy");
   }
 }
 
@@ -338,82 +321,6 @@ themeToggle?.addEventListener("click", () => {
 
 darkQuery.addEventListener?.("change", syncThemeControls);
 syncThemeControls();
-
-/* Sticky header + active section */
-
-const navLinks = [...document.querySelectorAll('.topnav a[href^="#"]')];
-const navTargets = navLinks
-  .map((link) => document.getElementById(link.getAttribute("href").slice(1)))
-  .filter(Boolean);
-
-function updateHeader() {
-  topbar?.classList.toggle("is-stuck", window.scrollY > 24);
-
-  const marker = window.innerHeight * 0.35;
-  const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
-  let activeId = navTargets[0]?.id;
-
-  for (const target of navTargets) {
-    if (target.getBoundingClientRect().top <= marker) {
-      activeId = target.id;
-    }
-  }
-
-  if (atBottom && navTargets.length) {
-    activeId = navTargets[navTargets.length - 1].id;
-  }
-
-  navLinks.forEach((link) => {
-    if (link.getAttribute("href") === `#${activeId}`) {
-      link.setAttribute("aria-current", "true");
-    } else {
-      link.removeAttribute("aria-current");
-    }
-  });
-}
-
-let headerFrame = 0;
-
-window.addEventListener(
-  "scroll",
-  () => {
-    if (!headerFrame) {
-      headerFrame = requestAnimationFrame(() => {
-        headerFrame = 0;
-        updateHeader();
-      });
-    }
-  },
-  { passive: true }
-);
-
-window.addEventListener("resize", updateHeader);
-updateHeader();
-
-/* Reveal sections as they scroll into view */
-
-const revealTargets = document.querySelectorAll("main .section:not(.hero), .footer");
-
-if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
-  );
-
-  revealTargets.forEach((target) => {
-    if (target.getBoundingClientRect().top > window.innerHeight) {
-      target.classList.add("reveal");
-      revealObserver.observe(target);
-    }
-  });
-}
 
 document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = new Date().getFullYear();
