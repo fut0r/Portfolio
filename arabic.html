@@ -7,29 +7,56 @@
       name="description"
       content="الموقع الشخصي لزياد محمد (fut0r). مطوّر Full Stack، الإسكندرية، مصر."
     />
+    <meta name="author" content="Zyad Mohamed" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://fut0r.infiniware.bid/arabic.html" />
-    <link rel="alternate" hreflang="en" href="https://fut0r.infiniware.bid/" />
-    <link rel="alternate" hreflang="ar" href="https://fut0r.infiniware.bid/arabic.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="fut0r" />
+    <meta name="theme-color" content="#eeede8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)" />
+    <link rel="canonical" href="https://fut0r.arabdev.site/arabic.html" />
+    <link rel="alternate" hreflang="en" href="https://fut0r.arabdev.site/" />
+    <link rel="alternate" hreflang="ar" href="https://fut0r.arabdev.site/arabic.html" />
+    <link rel="alternate" hreflang="x-default" href="https://fut0r.arabdev.site/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="fut0r" />
+    <meta property="og:title" content="fut0r | زياد محمد" />
     <meta
       property="og:description"
       content="مطوّر Full Stack. أبني برمجيات تعمل بشكل جيّد، أنظمة تصمد مع الزمن، وكود يسهل فهمه."
     />
-    <meta property="og:url" content="https://fut0r.infiniware.bid/arabic.html" />
-    <meta property="og:image" content="https://fut0r.infiniware.bid/favicon.jpeg" />
+    <meta property="og:url" content="https://fut0r.arabdev.site/arabic.html" />
+    <meta property="og:locale" content="ar_EG" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://fut0r.arabdev.site/icon-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="صورة زياد محمد (fut0r)" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="fut0r" />
+    <meta name="twitter:site" content="@fut0r" />
+    <meta name="twitter:title" content="fut0r | زياد محمد" />
     <meta
       name="twitter:description"
       content="مطوّر Full Stack. أبني برمجيات تعمل بشكل جيّد، أنظمة تصمد مع الزمن، وكود يسهل فهمه."
     />
-    <meta name="twitter:image" content="https://fut0r.infiniware.bid/favicon.jpeg" />
+    <meta name="twitter:image" content="https://fut0r.arabdev.site/icon-512.png" />
     <title>fut0r | زياد محمد</title>
-    <link rel="icon" type="image/jpeg" href="favicon.jpeg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <link rel="preconnect" href="https://api.github.com" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.dataset.theme = savedTheme;
+        }
+      } catch (error) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.github.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Roboto:wght@200;300;400;500&display=swap"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -38,22 +65,27 @@
         "name": "زياد محمد",
         "alternateName": "fut0r",
         "jobTitle": "مطوّر Full Stack",
-        "url": "https://fut0r.infiniware.bid/arabic.html",
-        "image": "https://fut0r.infiniware.bid/favicon.jpeg",
-        "email": "mailto:fut0r@infiniware.bid",
+        "url": "https://fut0r.arabdev.site/arabic.html",
+        "image": "https://fut0r.arabdev.site/profile.jpg",
+        "email": "mailto:fut0r@arabdev.site",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "الإسكندرية",
           "addressCountry": "EG"
         },
+        "knowsAbout": ["Python", "JavaScript", "C++", "Web Development", "Open Source"],
         "sameAs": [
           "https://github.com/fut0r",
-          "https://codeberg.org/fut0r"
+          "https://codeberg.org/fut0r",
+          "https://x.com/fut0r",
+          "https://dev.to/fut0r"
         ]
       }
     </script>
   </head>
   <body class="is-rtl">
+    <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
+
     <div class="page-shell">
       <div class="paper-grain" aria-hidden="true"></div>
 
@@ -70,11 +102,16 @@
         </nav>
 
         <div class="toolbar">
+          <button class="toolbar-button theme-toggle" id="theme-toggle" type="button" aria-label="تبديل المظهر" title="تبديل المظهر">
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.74 14.03A8.5 8.5 0 0 1 9.97 3.26a.75.75 0 0 0-.98-.9A10 10 0 1 0 21.64 15a.75.75 0 0 0-.9-.97Z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1Zm0 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM3.51 3.51a1 1 0 0 1 1.42 0l1.41 1.41a1 1 0 1 1-1.41 1.42L3.5 4.93a1 1 0 0 1 0-1.42Zm14.14 14.14a1 1 0 0 1 1.42 0l1.41 1.42a1 1 0 0 1-1.41 1.41l-1.42-1.41a1 1 0 0 1 0-1.42ZM0 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1Zm20 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM3.51 20.49a1 1 0 0 1 0-1.42l1.41-1.41a1 1 0 1 1 1.42 1.41L4.93 20.5a1 1 0 0 1-1.42 0ZM17.65 6.35a1 1 0 0 1 0-1.42l1.42-1.41a1 1 0 1 1 1.41 1.41l-1.41 1.42a1 1 0 0 1-1.42 0Z"/></svg>
+          </button>
+
           <button
-            class="language-trigger"
+            class="toolbar-button language-trigger"
             id="language-trigger"
             type="button"
-            aria-haspopup="dialog"
+            aria-haspopup="true"
             aria-expanded="false"
             aria-controls="language-popup"
             title="الترجمة"
@@ -89,27 +126,38 @@
 
           <div class="language-popup" id="language-popup" hidden>
             <p class="language-popup__label">اختر اللغة</p>
-            <a class="language-option" href="index.html">English</a>
-            <a class="language-option is-active" href="arabic.html">العربية</a>
+            <a class="language-option" href="./" hreflang="en" lang="en">English</a>
+            <a class="language-option is-active" href="arabic.html" hreflang="ar" lang="ar" aria-current="page">العربية</a>
           </div>
         </div>
       </header>
 
-      <main id="home">
-        <section class="hero section">
+      <main id="main">
+        <section class="hero section" id="home">
           <div class="hero-frame">
-            <div class="hero-top hero-top--arabic">
+            <div class="hero-top">
               <div class="hero-copy">
                 <p class="eyebrow">مطوّر Full Stack</p>
                 <h1>fut0r</h1>
               </div>
-              <img class="hero-photo" src="favicon.jpeg" alt="صورة fut0r" />
+              <img
+                class="hero-photo"
+                src="profile.jpg"
+                alt="صورة زياد محمد (fut0r)"
+                width="240"
+                height="240"
+                fetchpriority="high"
+              />
             </div>
             <div class="hero-meta">
-              <span>الإسكندرية، مصر</span>
-              <span>زياد محمد</span>
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm0 2c-4.42 0-8 2.24-8 5v2h16v-2c0-2.76-3.58-5-8-5Z"/></svg>زياد محمد</span>
+              <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>الإسكندرية، مصر</span>
             </div>
             <p class="hero-note">أبني برامج ذات قيمة حقيقية. كود نظيف، تصميم مدروس، لا فضول.</p>
+            <div class="hero-actions">
+              <a class="button" href="#projects">شاهد أعمالي <span class="button-arrow" aria-hidden="true">→</span></a>
+              <a class="button button--quiet" href="#contact">تواصل معي</a>
+            </div>
           </div>
         </section>
 
@@ -163,6 +211,9 @@
                 <p>جار تحميل المستودعات...</p>
               </article>
             </div>
+            <a class="projects-more" href="https://github.com/fut0r?tab=repositories" target="_blank" rel="noopener noreferrer">
+              كل المستودعات على GitHub <span class="button-arrow" aria-hidden="true">→</span>
+            </a>
           </div>
         </section>
 
@@ -217,12 +268,12 @@
                 class="social-icon-button"
                 href="https://github.com/fut0r"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="GitHub"
                 title="GitHub"
               >
                 <span class="social-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="img">
+                  <svg viewBox="0 0 24 24">
                     <path
                       d="M12 2C6.477 2 2 6.59 2 12.252c0 4.53 2.865 8.371 6.839 9.727.5.096.682-.221.682-.492 0-.243-.009-.888-.014-1.743-2.782.618-3.369-1.37-3.369-1.37-.455-1.176-1.11-1.49-1.11-1.49-.908-.637.069-.624.069-.624 1.004.072 1.532 1.054 1.532 1.054.892 1.56 2.341 1.11 2.91.85.091-.663.349-1.11.635-1.365-2.221-.259-4.556-1.137-4.556-5.062 0-1.118.389-2.033 1.029-2.75-.103-.26-.446-1.3.098-2.71 0 0 .84-.275 2.75 1.05A9.36 9.36 0 0 1 12 6.84c.85.004 1.705.118 2.504.347 1.909-1.325 2.747-1.05 2.747-1.05.546 1.41.203 2.45.1 2.71.64.717 1.028 1.632 1.028 2.75 0 3.934-2.338 4.8-4.566 5.054.359.317.679.943.679 1.9 0 1.372-.012 2.478-.012 2.815 0 .273.18.593.688.492C19.138 20.62 22 16.781 22 12.252 22 6.59 17.523 2 12 2Z"
                     />
@@ -233,12 +284,12 @@
                 class="social-icon-button"
                 href="https://x.com/fut0r"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="X (تويتر)"
                 title="X (تويتر)"
               >
                 <span class="social-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="img">
+                  <svg viewBox="0 0 24 24">
                     <path
                       d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.514l-5.106-6.67-5.826 6.67H2.306l7.644-8.74L1.126 2.25h6.697l4.596 6.06 5.819-6.06ZM17.002 18.868h1.81L6.368 3.931H4.456l12.546 14.937Z"
                     />
@@ -249,24 +300,24 @@
                 class="social-icon-button"
                 href="https://codeberg.org/fut0r"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="Codeberg"
                 title="Codeberg"
               >
                 <span class="social-icon" aria-hidden="true">
-                  <img src="codeberg.svg" alt="" />
+                  <img src="codeberg.svg" alt="" width="20" height="20" />
                 </span>
               </a>
-                                          <a
+              <a
                 class="social-icon-button"
                 href="https://dev.to/fut0r"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 aria-label="Dev.to"
                 title="Dev.to"
               >
                 <span class="social-icon" aria-hidden="true">
-                  <img src="dev-to-svgrepo-com.svg" alt="" />
+                  <img class="icon-invert" src="dev-to-svgrepo-com.svg" alt="" width="20" height="20" />
                 </span>
               </a>
               <a
@@ -276,7 +327,7 @@
                 title="البريد الإلكتروني"
               >
                 <span class="social-icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" role="img">
+                  <svg viewBox="0 0 24 24">
                     <path
                       d="M3 5.5h18A1.5 1.5 0 0 1 22.5 7v10A1.5 1.5 0 0 1 21 18.5H3A1.5 1.5 0 0 1 1.5 17V7A1.5 1.5 0 0 1 3 5.5Zm0 1.6v.27l9 5.83 9-5.83V7.1H3Zm18 2.17-8.59 5.56a.75.75 0 0 1-.82 0L3 9.27V17h18V9.27Z"
                     />
@@ -286,9 +337,13 @@
             </div>
           </section>
         </div>
+        <div class="footer-bottom">
+          <p>© <span data-year>2026</span> زياد محمد</p>
+          <a class="back-to-top" href="#home">العودة للأعلى <span aria-hidden="true">↑</span></a>
+        </div>
       </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>

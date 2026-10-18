@@ -1,15 +1,23 @@
 {
-  "name": "fut0r",
+  "name": "fut0r | Zyad Mohamed",
   "short_name": "fut0r",
+  "description": "Personal website of Zyad Mohamed (fut0r), Full Stack Developer.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#eeede8",
   "theme_color": "#eeede8",
   "icons": [
     {
-      "src": "/favicon.jpeg",
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fut0r.infiniware.bid/sitemap.xml
+Sitemap: https://fut0r.arabdev.site/sitemap.xml

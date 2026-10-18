@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#eeede8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#12110f" media="(prefers-color-scheme: dark)" />
+    <title>Page not found | fut0r</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <script>
+      try {
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.dataset.theme = savedTheme;
+        }
+      } catch (error) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500&family=Roboto:wght@200;300;400;500&display=swap"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="paper-grain" aria-hidden="true"></div>
+
+      <header class="topbar" aria-label="Site header">
+        <a class="wordmark" href="/">fut0r</a>
+      </header>
+
+      <main>
+        <section class="section not-found">
+          <div class="hero-copy">
+            <p class="eyebrow">Error 404</p>
+            <h1>Lost.</h1>
+            <p class="hero-note">This page doesn't exist, or it moved. Nothing extra here.</p>
+            <p class="hero-note" dir="rtl" lang="ar">هذه الصفحة غير موجودة.</p>
+            <div class="hero-actions">
+              <a class="button" href="/">Back home <span class="button-arrow" aria-hidden="true">→</span></a>
+              <a class="button button--quiet" href="/arabic.html" lang="ar">العربية</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
