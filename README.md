@@ -2,10 +2,4 @@
 
 My personal site, live at [fut0r.arabdev.site](https://fut0r.arabdev.site).
 
-Plain HTML, CSS and a bit of JavaScript. No build step. The projects list is pulled from the GitHub API, and there's an Arabic version at `arabic.html`.
-
-To run it locally:
-
-```sh
-python3 -m http.server 8000
-```
+Plain HTML, CSS and a bit of JavaScript, no build step. The projects list is pulled from the GitHub API, and there's an Arabic version at `arabic.html`.
